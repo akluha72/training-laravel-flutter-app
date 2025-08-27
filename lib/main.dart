@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,12 +13,35 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Welcome to Flutter',
       home: Scaffold(
-        appBar: AppBar(title: Text('Welcome to Flutter')),
-        body: Center(
-          child: Text(
-            'Hello World',
-            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-          ),
+        appBar: AppBar(title: Text('Login')),
+        body: Column(
+          children: <Widget>[
+            TextField(
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Email',
+              ),
+            ),
+            TextField(
+              keyboardType: TextInputType.visiblePassword,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Password',
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                print('Login button pressed');
+              },
+              child: Text('Login'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue,
+                foregroundColor: Colors.white,
+                minimumSize: Size(double.infinity, 36),
+              ),
+            ),
+          ],
         ),
       ),
     );
